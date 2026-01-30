@@ -4,13 +4,13 @@ const odds = [];
 const evens = [];
 
 // Adds given number to bank
-addToBank = (number) => {
+const addToBank = (number) => {
   bank.push(number);
   render();
 };
 
 //Moves the first number from bank to corresponding odds or evens bucket without rerendering
-sort = () => {
+const sort = () => {
   const number = bank.shift();
   if (number % 2 === 0) {
     evens.push(number);
@@ -20,13 +20,13 @@ sort = () => {
 };
 
 //Sorts first number in the bank
-sortOne = () => {
+const sortOne = () => {
   sort();
   render();
 };
 
 //Sorts all of numbers in the bank
-sortAll = () => {
+const sortAll = () => {
   while (bank.length) {
     sort();
   }
@@ -37,7 +37,7 @@ sortAll = () => {
 //Form that allows user to add a number to the bank
 //sort one number
 //or sort all numbers
-NumberForm = () => {
+const NumberForm = () => {
   const $form = document.createElement("form");
   $form.innerHTML = `
     <label>
@@ -67,14 +67,14 @@ NumberForm = () => {
 };
 
 //A single number in a NumberBank
-NumberInBank = (n) => {
+const NumberInBank = (n) => {
   const $span = document.createElement("span");
   $span.textContent = n;
   return $span;
 };
 
 //A labeled group of Numbers
-NumberBank = (label, numbers) => {
+const NumberBank = (label, numbers) => {
   const $bank = document.createElement("section");
   $bank.classList.add("bank");
   $bank.innerHTML = `
@@ -87,7 +87,7 @@ NumberBank = (label, numbers) => {
 };
 
 // === Render ===
-render = () => {
+const render = () => {
   const $app = document.querySelector("#app");
   $app.innerHTML = `
       <h1>Odds and Events</h1>
